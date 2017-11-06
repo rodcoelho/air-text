@@ -1,14 +1,10 @@
 import json, sys
 import urllib.request as urllib3
 from sendmessages import sendtext
-url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=%s&distance=50&API_KEY=2B8FF698-90F3-4000-B2D5-4089A2D6B03C" %sys.argv[1]
-### this should be run completely in the Command Line by employing the typical sys.argv argument
-# example:  $ python air_pollution_notification.py zipcode phone_number phone_provider
-# sys.argv[0] = air_pollution_notification.py
-# sys.argv[1] = zipcode
-# sys.argv[2] = phone number (10 digits, not including 1 at the beginning, ex: 5550001111)
-# sys.argv[3] = phone provider ('ATT', 'T-Mobile', 'Verizon', 'Sprint', 'metroPCS')
 
+url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=%s&distance=50&API_KEY=2B8FF698-90F3-4000-B2D5-4089A2D6B03C" %sys.argv[1]
+
+#main function - The else print function explains how to run file in command line
 def main():
     print(len(sys.argv))
     if (len(sys.argv) == 4):
@@ -19,8 +15,10 @@ def main():
     else:
         print('''
          
-            Your sys.argv argument should look like the following example:
+            Your sys.argv argument should look like the following examples:
             example:  $ python air_pollution_notification.py zipcode phone_number phone_provider
+            example:  $ python air_pollution_notification.py 94127 5550001111 ATT
+            
             sys.argv[0] = air_pollution_notification.py
             sys.argv[1] = zipcode
             sys.argv[2] = phone number (10 digits, not including 1 at the beginning, ex: 5550001111)
