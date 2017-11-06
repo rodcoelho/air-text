@@ -3,13 +3,13 @@ import urllib.request as urllib3
 from sendmessages import sendtext
 url = "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=%s&distance=50&API_KEY=2B8FF698-90F3-4000-B2D5-4089A2D6B03C" %sys.argv[1]
 ### this should be run completely in the Command Line by employing the typical sys.argv argument
-# example:  $ python AQI1.py zipcode phone_number phone_provider
-# sys.argv[0] = AQI1.py
+# example:  $ python air_pollution_notification.py zipcode phone_number phone_provider
+# sys.argv[0] = air_pollution_notification.py
 # sys.argv[1] = zipcode
 # sys.argv[2] = phone number (10 digits, not including 1 at the beginning, ex: 5550001111)
 # sys.argv[3] = phone provider ('ATT', 'T-Mobile', 'Verizon', 'Sprint', 'metroPCS')
 
-def begin():
+def main():
     print(len(sys.argv))
     if (len(sys.argv) == 4):
         provider, phone = determineTextInfo()
@@ -17,7 +17,16 @@ def begin():
     elif (len(sys.argv) == 2):
         storeTxtFile()
     else:
-        print("boo!")
+        print('''
+         
+            Your sys.argv argument should look like the following example:
+            example:  $ python air_pollution_notification.py zipcode phone_number phone_provider
+            sys.argv[0] = air_pollution_notification.py
+            sys.argv[1] = zipcode
+            sys.argv[2] = phone number (10 digits, not including 1 at the beginning, ex: 5550001111)
+            sys.argv[3] = phone provider ('ATT', 'T-Mobile', 'Verizon', 'Sprint', 'metroPCS')
+        
+        ''')
 
 #Determines phone number email information
 def determineTextInfo():
@@ -65,4 +74,5 @@ def storeTxtFile():
         file.write(msgSAFE)
         file.close()
 
-begin()
+if __name__=='__main__':
+    main()
