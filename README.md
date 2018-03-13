@@ -9,7 +9,7 @@ to learn to use keyring or securely store your email and password.
 
 #### Instructions 
 
-1) `git clone https://github.com/rodcoelho/air_pollution_notification.git`
+1) `git clone https://github.com/rodcoelho/air-text.git`
 2) In `sendmessages.py`, change the username and password to a dummy gmail account (non-personal). In the gmail account settings, disable security features that keep you from sending emails via the terminal.
 3) Use Cron Tabs to re-run the following:
 
